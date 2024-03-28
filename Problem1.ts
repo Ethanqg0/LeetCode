@@ -1,8 +1,9 @@
 /*
-  88. Merge Sorted Array
+  Problem One: #88 Merge Sorted Array
   Link: https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150
 */
 
+// Solution:
 function merge(nums1: number[], m: number, nums2: number[], n: number): void {
   /* 
         Notes To Self

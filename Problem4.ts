@@ -2,6 +2,10 @@
     Problem Four: #80 Remove Duplicates from Sorted Array II
     Link: https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/?envType=study-plan-v2&envId=top-interview-150
 
+    Notes
+    In this case, we utilize the two-pointer solution. Using a data structure like a linked list
+    would create additional overhead. A linked list would be a more suitable choice for data that is dynamically being added.
+
     Solution: Two-Pointer
     Runtime: 59 ms, beats 85%
     Memory: 52.38 mb, beats 75%

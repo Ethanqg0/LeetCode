@@ -7,6 +7,9 @@ Two Pointer Solution
 ## Find Majority, Mode, Unique Elements of Array
 Utilize the Boyer-Moore voting algorithm, 
 
+# Merging
+While loops are the optimal solution for merging
+
 ## Rotation Algorithms
 Assuming the rotation is labeled as d = 2:
 

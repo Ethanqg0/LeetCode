@@ -10,41 +10,33 @@
         Input Validation - empty strings
 
         position = 0; position for the desired word
-        newWord = ""; append matching letters to here, effectively, preventing any "removing"
 
         for letter in t
             if s at position == t 
-                append t index to newWord
-            else
-                pass
+                position++
 
-        if s === newWord
-            return True
-        else
-            return False
+        if s.length === position
+            return true
+
+        return false
 */
 function isSubsequence(s: string, t: string): boolean {
   // Edge Case: Input Validation
   if (s.length === 0) {
     return true;
   }
-  if (s.length !== 0 && t.length === 0) {
-    return false;
-  }
 
   let position = 0; // maintains position within desired word
-  let newWord = "";
 
   for (let i = 0; i < t.length; i++) {
     if (s[position] === t[i]) {
-      newWord += t[i];
       position++;
     }
   }
 
-  if (s === newWord) {
+  if (position === s.length) {
     return true;
-  } else {
-    return false;
   }
+
+  return false;
 }

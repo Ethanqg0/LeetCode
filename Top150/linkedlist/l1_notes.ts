@@ -14,3 +14,22 @@
 
         Return True
 */
+
+/*
+    We utilize a recursive approach to solve this problem
+
+    Pseudocode:
+    if head is null, return null // end of the list
+    if start.val is equal to val, return start // this is what we are looking for
+    else, recursively call the function with the next node
+*/
+function findVal(val, start): ListNode | null {
+    if (start === null) { return null }
+    if (start.val === val) { return start }
+
+    return findVal(val, start.next)
+}
+
+/*  Recursion is notorious for calling stack overflow because of the large amount of
+    execution calls it can place on the stack, iterative calls tend to be safer
+*/

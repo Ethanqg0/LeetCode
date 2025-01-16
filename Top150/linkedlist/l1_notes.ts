@@ -33,3 +33,72 @@ function findVal(val, start): ListNode | null {
 /*  Recursion is notorious for calling stack overflow because of the large amount of
     execution calls it can place on the stack, iterative calls tend to be safer
 */
+
+/*
+    Method:
+        Find the length of the list
+        Link the tail to the head
+        Break the rotation at (length - k - 1)
+        Maintain the node at (length - k), this will become the new head
+
+    Pseudocode:
+        Edge Cases
+            Zero or One elements, return NULL
+
+        length = 0
+        Node* curr = head
+
+        while (curr) {
+            curr = curr->next
+            length++
+        } // find length while going to the end to link tail to head
+
+        if (length > k) {
+            k = k % length
+        }
+
+        curr->next = head // link the tail to the head
+
+        curr = head
+
+        for (let i = 0; i < length - k - 1; i++) {
+            curr = curr->next
+        }
+
+        head = curr->next
+        curr->next = NULL
+*/
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        // Edge Cases
+        if (head == NULL || head->next == NULL) { return head; }
+        if (k == 0) { return head; }
+
+        int length = 1;
+        ListNode* curr = head;
+
+        // Reaching End of List
+        while (curr->next) {
+            curr = curr->next;
+            length++;
+        }
+
+        k = k % length;
+
+        // Linking the tail to the end (circular linking)
+        curr->next = head;
+
+        curr = head;
+
+        // Breaking the loop and setting a new head
+        for (int i = 0; i < length - k - 1; i++) {
+            curr = curr->next;
+        }
+
+        head = curr->next;
+        curr->next = NULL;
+
+        return head;
+    }
+};

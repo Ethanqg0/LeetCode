@@ -102,3 +102,50 @@ public:
         return head;
     }
 };
+
+/*
+    Psuedocode:
+        Edge Cases
+            If zero or one elements, return head
+
+        Node* prev = NULL
+        Node* curr = head
+
+        std::set<int> elementsSet;
+
+        while (curr)
+            if elementsSet.find(curr->val) != elementsSet.end()
+                prev->next = curr->next
+                curr->next = NULL
+                curr = prev->next
+            else
+                elementsSet.insert(curr.val)
+                prev = curr
+                curr = curr->next
+        return head
+*/
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        if (head == NULL || head->next == NULL) { return head; }
+
+        ListNode* prev = NULL;
+        ListNode* curr = head;
+
+        std::unordered_set<int> elementsSet;
+
+        while (curr) {
+            if ( elementsSet.find(curr->val) != elementsSet.end() ) {
+                prev->next = curr->next;
+                curr->next = NULL;
+                curr = prev->next;
+            } else {
+                elementsSet.insert(curr->val);
+                prev = curr;
+                curr = curr->next;
+            }
+        }
+
+        return head;
+    }
+};

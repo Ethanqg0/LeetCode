@@ -24,9 +24,10 @@
     the + 1 is for each level
 */
 function maxDepth(root: TreeNode | null): number {
-  if (!root) {
-    return 0;
-  }
+    if (!root) { return 0; }
 
-  return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
-}
+    let left: number = maxDepth(root.left);
+    let right: number = maxDepth(root.right);
+
+    return Math.max(left, right) + 1;
+};

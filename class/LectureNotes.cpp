@@ -89,4 +89,9 @@ class BST {
                 return insert(parent->right, val);
             }
         }
+
+        // Three cases: 
+        Node* delete(Node* parent, int val) {
+            
+        }
 }

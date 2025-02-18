@@ -12,6 +12,8 @@ public:
 };
 
 /*
+    Utilizes queue library: empty(), push(), front(), pop(), size()
+
     Finds the level with the greatest width and returns that width.
     We utilize a breadth-first search in conjunction with a queue to go level-by-level.
 
@@ -31,7 +33,6 @@ public:
             pop node
                 for the popped node, add its left and right nodes to the queue, if they exist
 */
-
 int width(TreeNode* root) {
     if (!root) { return 0; }
 
@@ -67,4 +68,26 @@ int width(TreeNode* root) {
     }
 
     return greatestWidth;
+}
+
+TreeNode* lowestCommonAncestor( root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
+  // Edge Case
+  if (root === null) {
+    return root;
+  }
+
+  // Base Case
+  if (root === p || root === q) {
+    return root;
+  }
+
+  // Recursive Case
+  TreeNode* left = lowestCommonAncestor(root.left, p, q); // 5
+  TreeNode* right = lowestCommonAncestor(root.right, p, q); // null
+
+  if (left && right) {
+    return root;
+  }
+
+  return left !== null ? left : right; // Return the non-null case
 }
